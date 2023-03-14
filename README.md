@@ -20,6 +20,8 @@ http://127.0.0.1:5500/destination.html?name=ivysaur
 
 Du skal nu "fiske" navnet ud af url'en og fetche data om `ivysaur` og præsentere Pokemonen på siden.
 
+evt. lav et toggle mode mellem grid og flex!!!!
+
 **Star Wars api'et**
 
 I Star Wars apiet får man ikke umiddelbart adgang til data man kan fetche en enkelt person med, så et forslag kunne være at tage url'en og splitte til et array, så man kan få fat i id'et ad den vej.
