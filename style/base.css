@@ -1,0 +1,19 @@
+/* ---------Resets --------------- */
+*{
+    box-sizing: border-box; /* gør at border og padding æder sig ind på elementet som på den måde bliver inden for de f.eks. fastsatte 100% */
+}
+
+html, body, figure{/* hvis du gør dette på * skal resette den på dine p-tags eksempelvis  */
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    max-width: 100%; /* Så bliver billedet ikke større end 100%, men kan sagtens være mindre */
+}
+
+/* ---------Body------------ */
+
+body{
+ background-color: #3c5aa6;
+}
