@@ -3,7 +3,6 @@ const destinationsContainer = document.querySelector("#card-list");
 const destinationsWrapper = document.createElement("div");
 const pokedex = document.getElementById("pokedex")
 
-console.log(pokedex)
 /* -- Der skal være en liste visning af pokemonerne
 -- vi skal kunne gå ind på en pokemon og se detaljer
 -- Dette gøres ved at oprette querystrings i URL'en.
@@ -19,7 +18,7 @@ console.log(pokedex)
 /* Husk at sætte en limit!! Det gøres med URL'en */
 const fetchPokemon = () => {
     const promises = [];//tom array
-    for (let i = 1; i < 11; i++) {
+    for (let i = 1; i < 10; i++) {
     const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
     promises.push(fetch(url).then((res) => res.json()));//for hver request skubbes den ind i listen af promises
     }
@@ -38,7 +37,20 @@ const fetchPokemon = () => {
 };
 
 const displayPokemon = (pokemon) => {
-    console.log(pokemon)
+
+    const pokemonHTMLString = pokemon.map ( pokeman => `
+    <li class="cards">
+        <img clasee="card-img" src ="${pokeman.image}"/>
+        <h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
+        <p class="card-type">Type: ${pokeman.type}</p>
+       </li> 
+    `
+  
+       
+        )
+
+        .join('')
+    pokedex.innerHTML = pokemonHTMLString;
 }
 
 fetchPokemon();

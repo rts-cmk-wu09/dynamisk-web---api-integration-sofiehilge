@@ -15,5 +15,78 @@ img{
 /* ---------Body------------ */
 
 body{
- background-color: #3c5aa6;
+ background-color: var(--poke-blue);
+ margin: 0;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.cards{
+    list-style: none;
+    padding: 10px;
+    background-color: var(--poke-darkred);
+    color: var(--poke-gold);
+    text-align: center;
+/*     display: grid; */
+}
+
+.card-title{
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.card-type{
+    font-weight: lighter;
+    color: var(--poke-gold);
+    margin-top: 5px;
+
+}
+
+.card-image{
+    height: 300px;
+    margin: auto 0;
+}
+
+#pokedex {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) ; /* RESPONSIVT GRID!! skaber det antal columner der er plads til. */
+    grid-gap: 20px;
+}
+
+#card-list{
+    padding: 40px;
+    margin: 0 auto;
+
+}
+
+header{
+    display: flex;
+}
+
+.logo{
+    margin: 0 auto;
+    height: 300px
+}
+
+.cards:hover{
+    animation: bounce 0.5s linear;
+    
+}
+
+@keyframes bounce{
+    20% {
+        transform: translateY(-6px);
+    }
+    40%{
+        transform: translateY(0px);
+    }
+    60%{
+        transform: translateY(-2px);
+    }
+    80%{
+        transform: translateY(-0px);
+    }
+
 }
