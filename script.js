@@ -1,6 +1,9 @@
 
 const destinationsContainer = document.querySelector("#card-list");
 const destinationsWrapper = document.createElement("div");
+const pokedex = document.getElementById("pokedex")
+
+console.log(pokedex)
 /* -- Der skal være en liste visning af pokemonerne
 -- vi skal kunne gå ind på en pokemon og se detaljer
 -- Dette gøres ved at oprette querystrings i URL'en.
@@ -14,8 +17,37 @@ const destinationsWrapper = document.createElement("div");
  */
 
 /* Husk at sætte en limit!! Det gøres med URL'en */
-fetch("https://swapi.dev/api/people/1/").then((response) => {
-    return response.json();
-}).then((data)=> {
-    console.log(data)
-})
+const fetchPokemon = () => {
+    const promises = [];//tom array
+    for (let i = 1; i < 11; i++) {
+    const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+    promises.push(fetch(url).then((res) => res.json()));//for hver request skubbes den ind i listen af promises
+    }
+    Promise.all(promises).then(results => {//promises.all får alle de individuelle kald uploade parallelt, som trigger en .then
+    
+    const pokemon = results.map((data) =>({//.map iterere igennem arrayet, og skaber et nyt array for hvert item
+    name: data.name,
+    id: data.id,
+    image: data.sprites['front_default'],
+    type: data.types.map((type) => type.type.name).join(' ,')
+        
+    }))//denne returnere en ny array
+       displayPokemon(pokemon);
+
+    });
+};
+
+const displayPokemon = (pokemon) => {
+    console.log(pokemon)
+}
+
+fetchPokemon();
+
+/* type: data.types.map( type => type.type.name).join
+        (', ') */
+
+        /* <article>
+        <h2>${data.name}</h2>
+        <p>${data.id}</p>
+        <img src="${data.sprites['front-_default']}
+        ` */
