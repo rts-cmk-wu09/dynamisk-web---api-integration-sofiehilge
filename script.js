@@ -39,10 +39,10 @@ const fetchPokemon = () => {
 const displayPokemon = (pokemon) => {
 
     const pokemonHTMLString = pokemon.map ( pokeman => `
-    <li class="cards">
-        <img clasee="card-img" src ="${pokeman.image}"/>
-        <h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
-        <p class="card-type">Type: ${pokeman.type}</p>
+    <li class="cards card">
+        <img class="card-img" src ="${pokeman.image}"/>
+        <a href="details.html?id=${pokeman.id}<h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
+        <p class="card-type">Type: ${pokeman.type}</p></a>
        </li> 
     `
   
@@ -63,3 +63,12 @@ fetchPokemon();
         <p>${data.id}</p>
         <img src="${data.sprites['front-_default']}
         ` */
+
+/* const urlPage = 'https://pokeapi.co/api/v2/pokemon?';
+
+const obj = {
+    v1: "javascript",
+};
+
+const searchParams = new URLSearchParams(obj)
+console.log(searchParams) */

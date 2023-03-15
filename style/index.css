@@ -1,0 +1,145 @@
+
+
+.cards{
+    list-style: none;
+    padding: 10px;
+    background-color: var(--poke-gold);
+    color: var(--poke-gold);
+    text-align: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a{
+    font-size: 4vh;
+    font-family: var(--poke-font);
+    font-palette: --myPalette;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+@font-palette-values --myPalette {
+    font-family: "Bungee Spice";
+    base-palette: 2;
+   /*  override-colors: 6 #FFB978; */
+  }
+
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }
+
+
+.card-title{
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 0;
+    
+}
+
+.card-type{
+    font-weight: lighter;
+    color: var(--poke-darkred);
+    margin-top: 5px;
+
+}
+
+.card-img{
+    width: 20vh;
+    margin: auto 0;
+}
+
+#pokedex {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) ; /* RESPONSIVT GRID!! skaber det antal columner der er plads til. */
+    grid-gap: 20px;
+  
+}
+
+#card-list{
+    padding: 40px;
+    margin: 0 auto;
+
+}
+
+header{
+    display: flex;
+}
+
+.logo{
+    margin: 0 auto;
+    height: 300px
+}
+
+.cards:hover{
+    animation: bounce 0.5s linear;
+    
+}
+
+@keyframes bounce{
+    20% {
+        transform: translateY(-6px);
+    }
+    40%{
+        transform: translateY(0px);
+    }
+    60%{
+        transform: translateY(-2px);
+    }
+    80%{
+        transform: translateY(-0px);
+    }
+
+}
+
+/* .---------special effect-------------- */
+
+.card {
+    
+    border-radius: 5% / 3.5%;
+    box-shadow: 
+      -5px -5px 5px -5px var(--color1), 
+      5px 5px 5px -5px var(--color2), 
+      -7px -7px 10px -5px transparent, 
+      7px 7px 10px -5px transparent, 
+      0 0 5px 0px rgba(255,255,255,0),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+    
+    transition: transform 0.5s ease, box-shadow 0.2s ease;
+    will-change: transform, filter;
+    
+        background-color: var(--poke-blue);
+        animation-name: example;
+        animation-duration: 4s;
+    
+  }
+  
+  @keyframes example {
+    0% {background-color: var(--poke-gold);}
+    25% {background-color: var(--poke-blue);}
+    50% {background-color: var(--poke-darkred);}
+    100% {background-color: var(--poke-red);}
+  }
+  .card:hover {
+    box-shadow: 
+      -20px -20px 30px -25px var(--color1), 
+      20px 20px 30px -25px var(--color2), 
+      -7px -7px 10px -5px var(--color1), 
+      7px 7px 10px -5px var(--color2), 
+      0 0 13px 4px rgba(255,255,255,0.3),
+      0 55px 35px -20px rgba(0, 0, 0, 0.5);
+  }

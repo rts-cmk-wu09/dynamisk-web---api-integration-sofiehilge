@@ -5,5 +5,10 @@
 --poke-yellow: #ffde00;
 --poke-gold:#b3a125;
 
---poke-font:'Roboto', sans-serif;
+--color1: rgb(0, 231, 255);
+  --color2: rgb(255, 0, 231);
+  --charizard1: #fac;
+  --charizard2: #ddccaa;
+
+  --poke-font:'Bungee Spice', cursive;
 }
