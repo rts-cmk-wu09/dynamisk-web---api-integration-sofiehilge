@@ -41,7 +41,7 @@ const displayPokemon = (pokemon) => {
     const pokemonHTMLString = pokemon.map ( pokeman => `
     <li class="cards card">
         <img class="card-img" src ="${pokeman.image}"/>
-        <a href="details.html?id=${pokeman.id}<h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
+        <a href="details.html?name=${pokeman.name}">${pokeman.name}<h2 class="card-title">${pokeman.id}. ${pokeman.name}</h2>
         <p class="card-type">Type: ${pokeman.type}</p></a>
        </li> 
     `
@@ -52,6 +52,8 @@ const displayPokemon = (pokemon) => {
         .join('')
     pokedex.innerHTML = pokemonHTMLString;
 }
+
+/* obs ændre til name!!! ikke brug id. */ 
 
 fetchPokemon();
 
