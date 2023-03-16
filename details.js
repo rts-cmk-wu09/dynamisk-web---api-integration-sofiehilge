@@ -8,8 +8,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${namePoke}`)
 .then((response) => response.json())
 .then((pokemonData) => {
     document.querySelector("body").innerHTML += `
-    <figure>
-        ${pokemonData.forms[0].name}
+    <figure class="cards card">
+        <h2 class="card-title">${pokemonData.forms[0].name}
+        <img class="card-img" src ="${pokemonData.sprites.front_default}"/>
     </figure>
     `
     ;
