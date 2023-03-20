@@ -16,19 +16,29 @@ const pokedex = document.getElementById("pokedex")
  */
 
 /* Husk at sætte en limit!! Det gøres med URL'en */
+
+const limit = 3
+const offset = 10
+
 const fetchPokemon = () => {
     const promises = [];//tom array
-    for (let i = 1; i < 10; i++) {
-    const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+    for (let i = 1; i < 20; i++) {
+    const url = `https://pokeapi.co/api/v2/pokemon/${i}?offset=${offset}`;
     promises.push(fetch(url).then((res) => res.json()));//for hver request skubbes den ind i listen af promises
     }
     Promise.all(promises).then(results => {//promises.all får alle de individuelle kald uploade parallelt, som trigger en .then
     
+    //forEach iterere henover en samling af data. det er en løkke, den returnere ikke noget
+    //map er en metode/funktion, den returnere data. HUSK at skriver return ellers kan map ikke returner.
+    //hvis vi erstarter forEach med map, benytter vi os med en array metode. Map returnere en værdi. Hvor forEach gør noget hvergang der er et element
+    //Map opretter et nyt array med den data, vi har bearbejdet og manipuleret.
+
+
     const pokemon = results.map((data) =>({//.map iterere igennem arrayet, og skaber et nyt array for hvert item
     name: data.name,
     id: data.id,
     image: data.sprites['front_default'],
-    type: data.types.map((type) => type.type.name).join(' ,')
+    type: data.types.map((type) => type.type.name).join(' ,')//her ikke return fordi når det ligger på en linje, uden scope ligger return implicit i linjen.
         
     }))//denne returnere en ny array
        displayPokemon(pokemon);
@@ -53,10 +63,25 @@ const displayPokemon = (pokemon) => {
     pokedex.innerHTML = pokemonHTMLString;
 }
 
+
 /* obs ændre til name!!! ikke brug id. */ 
 
 fetchPokemon();
 
+/* --------virker ikke!!------------ */
+/* 
+button.innerHTML += `
+<button id="forward">Forward</button>
+<button id="backward">Back</button>
+`
+forwardBtn.addEventListener('click', function(){
+    window.history.go(1)
+})
+
+backwardBtn.addEventListener('click', function(){
+    window.history.go(1)
+})
+ */
 /* type: data.types.map( type => type.type.name).join
         (', ') */
 
@@ -74,3 +99,4 @@ const obj = {
 
 const searchParams = new URLSearchParams(obj)
 console.log(searchParams) */
+

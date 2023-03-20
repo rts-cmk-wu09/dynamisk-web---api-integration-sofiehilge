@@ -12,6 +12,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${namePoke}`)
     <div class="details-data">
         <h2 class="card-title">${pokemonData.forms[0].name}
         <img class="card-img details-img" src ="${pokemonData.sprites.front_default}"/>
+        <li>${pokemonData.abilities.map((ability) => {
+            return "<li>ability: "+ ability.ability.name + "</li>";
+        }).join(" ")}
         </div>
     </figure>
     `
