@@ -1,0 +1,14 @@
+:root{
+--poke-red: #FF0000;
+--poke-darkred: #cc0000;
+--poke-blue: #3b4cca;
+--poke-yellow: #ffde00;
+--poke-gold:#b3a125;
+
+--color1: rgb(0, 231, 255);
+  --color2: rgb(255, 0, 231);
+  --charizard1: #fac;
+  --charizard2: #ddccaa;
+
+  --poke-font:'Bungee Spice', cursive;
+}
